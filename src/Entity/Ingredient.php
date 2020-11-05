@@ -27,6 +27,12 @@ class Ingredient
      */
     private $measure;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Meal::class, inversedBy="ingredients")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mealId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +58,18 @@ class Ingredient
     public function setMeasure(string $measure): self
     {
         $this->measure = $measure;
+
+        return $this;
+    }
+
+    public function getMealId(): ?Meal
+    {
+        return $this->mealId;
+    }
+
+    public function setMealId(?Meal $mealId): self
+    {
+        $this->mealId = $mealId;
 
         return $this;
     }
