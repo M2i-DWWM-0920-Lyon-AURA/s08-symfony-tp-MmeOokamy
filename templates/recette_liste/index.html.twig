@@ -4,6 +4,20 @@
 
 {% block body %}
     <main class="container">
+    <h1> Recettes de la mort qui tue </h1>
+       <ul>
+        {% for recette in recettes %}
+            <li>
+                <div>
+                    <h3>Origine : {{ recette.area }}</h3>
+                    <h2>{{ recette.name }}</h2>
+                    <img src="{{ recette.image }}">
+                    <h5>{{ recette.category }}</h5>
+
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
 
     </main>
 {% endblock %}
