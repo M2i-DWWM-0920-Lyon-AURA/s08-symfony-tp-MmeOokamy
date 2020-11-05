@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecetteListeController extends AbstractController
 {
     protected MealRepository $repository;
-    
+
     public function __construct(MealRepository $repository)
     {
         $this->repository = $repository;
@@ -34,6 +34,17 @@ class RecetteListeController extends AbstractController
 
         return $this->render('recette_liste/index.html.twig', [
             'recettes' => $recettes,
+        ]);
+    }
+
+    /**
+     * @Route("recette/{id}", name="single", requirements={"id"="\d+"})
+     */
+    public function single(int $id, MealRepository $repository): Response
+    {
+        $recette = $repository->find($id);
+        return $this->render('recette_liste/single.html.twig', [
+            'recette' => $recette,
         ]);
     }
 }

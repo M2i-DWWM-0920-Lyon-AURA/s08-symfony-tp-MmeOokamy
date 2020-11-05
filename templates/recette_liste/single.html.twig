@@ -5,20 +5,21 @@
 {% block body %}
     <main class="container">
     <h1> Recettes de la mort qui tue </h1>
-       <ul>
-        {% for recette in recettes %}
-            <li>
+     
+        
+           
                 <div>
                     <h3>Origine : {{ recette.area }}</h3>
                     <h2>{{ recette.name }}</h2>
                     <img src="{{ recette.image }}">
                     <h5>{{ recette.category }}</h5>
-                    <a href="{{ path('recette_single', {id: recette.id}) }}" class="btn btn-outline-primary">Voir plus</a>
-
                 </div>
-            </li>
-        {% endfor %}
-        </ul>
+                <div>
+                
+                </div>
+            
+        
+        
 
     </main>
 {% endblock %}
