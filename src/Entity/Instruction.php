@@ -27,6 +27,11 @@ class Instruction
      */
     private $instructionRank;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=meal::class, inversedBy="instructions")
+     */
+    private $makeMeal;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Instruction
     public function setInstructionRank(int $instructionRank): self
     {
         $this->instructionRank = $instructionRank;
+
+        return $this;
+    }
+
+    public function getMakeMeal(): ?meal
+    {
+        return $this->makeMeal;
+    }
+
+    public function setMakeMeal(?meal $makeMeal): self
+    {
+        $this->makeMeal = $makeMeal;
 
         return $this;
     }
